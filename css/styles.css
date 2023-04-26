@@ -7,10 +7,8 @@
 body {
   background-image: url("../images/marvel-background.jpg");
   background-size: cover;
-
   background-position: center;
   background-attachment: fixed;
-  background-position: center center;
   background-repeat: no-repeat;
 
   font-family: "Kanit", sans-serif;
@@ -204,18 +202,6 @@ input::placeholder {
 .buttons {
   gap: 5px;
   padding: 0 10px;
-}
-
-/*------------------------------------------------------ Background Image ------------------------------------------- */
-.bg-img {
-  width: 70%;
-  min-width: 600px;
-  /* height: auto; */
-  position: fixed;
-  bottom: -30px;
-  left: 0;
-  right: 0;
-  margin: auto;
 }
 
 /* ----------------------------------------------Toast for notification--------------------------------------------------*/

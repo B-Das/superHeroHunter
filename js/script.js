@@ -3,6 +3,7 @@ let searchBar = document.getElementById("search-bar");
 let searchResults = document.getElementById("search-results");
 
 // function for API call
+
 async function searchHeros(textSearched) {
   // if there is no text written in the search bar then nothing is displayed
   if (textSearched.length == 0) {
@@ -17,6 +18,7 @@ async function searchHeros(textSearched) {
   const privateApiKey = "d60ffa355099a26218ea4d49e63059e4a0daf637";
 
   // generating hash using md5
+
   const hash = CryptoJS.MD5(ts + privateApiKey + publicApiKey).toString();
 
   // API call to get the data
