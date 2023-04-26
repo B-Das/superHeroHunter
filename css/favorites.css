@@ -1,54 +1,44 @@
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 
-.cards-container{
-    justify-content: space-evenly;
-    /* height: 100%; */
-    flex-wrap: wrap;
-    overflow: hidden;
+.cards-container {
+  justify-content: space-evenly;
+  /* height: 100%; */
+  flex-wrap: wrap;
+  overflow: hidden;
 }
-.character-info .btn{ 
-    width: 100%;
-}
-
-.card{
-    background-color: hsla(0, 0%, 100%, 0.62);
-    height: 484px;
-    width: 250px;
-    margin: 40px 25px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    gap: 5px;
-    z-index: 2;
-    backdrop-filter: blur(3px);
+.character-info .btn {
+  width: 100%;
 }
 
-.card img{
-    border-radius: 10px 10px 0 0;
+.card {
+  background-color: hsla(0, 0%, 100%, 0.62);
+  height: 484px;
+  width: 250px;
+  margin: 40px 25px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  gap: 5px;
+  z-index: 2;
+  backdrop-filter: blur(3px);
 }
 
-.name{
-    font-size: 20px;
-    /* font-weight: bold; */
+.card img {
+  border-radius: 10px 10px 0 0;
 }
 
-.remove-btn{
-    border-radius: 0 0 10px 10px;
+.name {
+  font-size: 20px;
+  /* font-weight: bold; */
 }
 
-.no-characters{
-    font-size: 40px;
-    color: var(--text-color);
+.remove-btn {
+  border-radius: 0 0 10px 10px;
 }
 
-/* #delete-all{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    z-index: 5;
-    width: 60%;
-} */
+.no-characters {
+  font-size: 40px;
+  color: whitesmoke;
+}
