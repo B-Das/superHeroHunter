@@ -5,7 +5,6 @@ let searchResults = document.getElementById("search-results");
 // function for API call
 
 async function searchHeros(textSearched) {
-  // if there is no text written in the search bar then nothing is displayed
   if (textSearched.length == 0) {
     searchResults.innerHTML = ``;
     return;
@@ -27,13 +26,11 @@ async function searchHeros(textSearched) {
       `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${textSearched}&apikey=${publicApiKey}&ts=${ts}&hash=${hash}`
     )
     .then((response) => {
-      //sending the searched results characters to show in HTML
       showSearchedResults(response.data.data.results);
     })
     .catch((error) => console.log(error));
 }
 
-// Adding eventListener to search bar
 searchBar.addEventListener("input", () => searchHeros(searchBar.value));
 
 // Function for displaying the searched results in DOM
@@ -125,12 +122,10 @@ function events() {
 
 // Function invoked when "Add to Favourites" button or "Remvove from favourites" button is click appropriate action is taken accoring to the button clicked
 function addToFavourites() {
-  // If add to favourites button is cliked then
   if (
     this.innerHTML ==
     '<i class="fa-solid fa-heart fav-icon"></i> &nbsp; Add to Favourites'
   ) {
-    // We cretate a new object containg revelent info of hero and push it into favouritesArray
     let heroInfo = {
       name: this.parentElement.parentElement.children[2].children[0].innerHTML,
       description:
@@ -169,7 +164,6 @@ function addToFavourites() {
     }
 
     favouritesCharacterIDs.set(heroInfo.id, true);
-    // console.log(favouritesCharacterIDs)
 
     favouritesArray.push(heroInfo);
 
@@ -183,46 +177,34 @@ function addToFavourites() {
       JSON.stringify(favouritesArray)
     );
 
-    // Convering the "Add to Favourites" button to "Remove from Favourites"
     this.innerHTML =
       '<i class="fa-solid fa-heart-circle-minus"></i> &nbsp; Remove from Favourites';
 
-    // Displaying the "Added to Favourites" toast to DOM
     document.querySelector(".fav-toast").setAttribute("data-visiblity", "show");
-    // Deleting the "Added to Favourites" toast from DOM after 1 seconds
+
     setTimeout(function () {
       document
         .querySelector(".fav-toast")
         .setAttribute("data-visiblity", "hide");
     }, 1000);
-  }
-  // For removing the character form favourites array
-  else {
-    // storing the id of character in a variable
+  } else {
     let idOfCharacterToBeRemoveFromFavourites =
       this.parentElement.parentElement.children[2].children[6].innerHTML;
 
-    // getting the favourites array from localStorage for removing the character object which is to be removed
     let favouritesArray = JSON.parse(
       localStorage.getItem("favouriteCharacters")
     );
 
-    // getting the favaourites character ids array for deleting the character id from favouritesCharacterIDs also
     let favouritesCharacterIDs = new Map(
       JSON.parse(localStorage.getItem("favouritesCharacterIDs"))
     );
 
-    // will contain the characters which should be present after the deletion of the character to be removed
     let newFavouritesArray = [];
     // let newFavouritesCharacterIDs = [];
 
-    // deleting the character from map using delete function where id of character acts as key
     favouritesCharacterIDs.delete(`${idOfCharacterToBeRemoveFromFavourites}`);
 
-    // creating the new array which does not include the deleted character
-    // iterating each element of array
     favouritesArray.forEach((favourite) => {
-      // if the id of the character doesn't matches the favourite (i.e a favourite character) then we append it in newFavourites array
       if (idOfCharacterToBeRemoveFromFavourites != favourite.id) {
         newFavouritesArray.push(favourite);
       }
@@ -258,10 +240,8 @@ function addToFavourites() {
   }
 }
 
-// Function which stores the info object of character for which user want to see the info
+// function for stores the data of character in localStorage.
 function addInfoInLocalStorage() {
-  // This function basically stores the data of character in localStorage.
-  // When user clicks on the info button and when the info page is opened that page fetches the heroInfo and display the data
   let heroInfo = {
     name: this.parentElement.parentElement.parentElement.children[2].children[0]
       .innerHTML,

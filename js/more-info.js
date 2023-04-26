@@ -1,15 +1,11 @@
-// Selecting the elements from the DOM
 let info = document.getElementById("info-container");
 let title = document.getElementById("page-title");
 
-// getting the heroInfo object which was stored when the user clicked on more info
 let heroInfo = JSON.parse(localStorage.getItem("heroInfo"));
 
-// Changing the title of the page according to the characters name
 title.innerHTML = heroInfo.name + " | SH";
 
 window.addEventListener("load", function () {
-  // getting the favouritesCharacterIDs for displaying the appropriate button accoring to the existance of character in favourites
   let favouritesCharacterIDs = localStorage.getItem("favouritesCharacterIDs");
   if (favouritesCharacterIDs == null) {
     favouritesCharacterIDs = new Map();

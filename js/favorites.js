@@ -108,7 +108,7 @@ function removeCharacterFromFavourites() {
   }, 1000);
 }
 
-// Function which stores the info object of character for which user want to see the info
+// Function for stores the info object of character for which user want to see the info
 function addInfoInLocalStorage() {
   let heroInfo = {
     name: this.parentElement.children[7].children[1].innerHTML,
